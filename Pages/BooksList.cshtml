@@ -1,0 +1,28 @@
+@page
+@model WebWF.Pages.BooksList
+@{
+    ViewData["Title"] = "لیست کتاب ها";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <table class="table table-bordered table-striped">
+        <Thead>
+            <th>کد</th>
+            <th>نام کتاب</th>
+            <th>نویسنده</th>
+        </Thead>
+        <tbody>
+            @foreach (var book in Model.Books)
+            {
+            <tr>
+                <td><a href="/EditBook?id=@book.Id">ویرایش</a></td>
+                <td>@book.Id</td>
+                <td>@book.Name</td>
+                <td>@book.AuthorName</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
